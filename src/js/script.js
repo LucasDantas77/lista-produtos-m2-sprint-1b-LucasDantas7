@@ -6,8 +6,7 @@ const btnHortifruti = document.querySelector("#hortiFruti")
 const btnPanificadora = document.querySelector("#panificadora")
 const btnLaticinios = document.querySelector("#laticinios")
 const total = document.querySelector("#total")
-const quantidadeDeProduto = 0
-const valorTotal = 0
+
 
 function criaLista(itens) {
 
@@ -44,6 +43,7 @@ function todosProdutos() {
     })
     ul.innerHTML = ""
     criaLista(mostrarTodos)
+    precoTotal(mostrarTodos)
 }
 
 
@@ -57,6 +57,7 @@ function hortifruti() {
     })
     ul.innerHTML = ""
     criaLista(mostrarHortifruti)
+    precoTotal(mostrarHortifruti)
 }
 
 
@@ -64,7 +65,6 @@ btnHortifruti.addEventListener("click", hortifruti);
 
 
 function panificadora() {
-
     const mostrarPanificadora = listaProducts.filter((produtos) => {
         return produtos.secao === "Panificadora"
 
@@ -72,6 +72,8 @@ function panificadora() {
     })
     ul.innerHTML = ""
     criaLista(mostrarPanificadora)
+    precoTotal(mostrarPanificadora)
+
 }
 
 btnPanificadora.addEventListener("click", panificadora);
@@ -85,8 +87,9 @@ function laticinios() {
     })
     ul.innerHTML = ""
     criaLista(mostrarLaticinios)
-}
+    precoTotal(mostrarLaticinios)
 
+}
 
 btnLaticinios.addEventListener("click", laticinios);
 
@@ -95,15 +98,16 @@ btnLaticinios.addEventListener("click", laticinios);
 
 function pesquisa() {
 
-    let resultadoBusca = []
     ul.innerHTML = ""
+    let resultadoBusca = []
+
     for (let i = 0; i < listaProducts.length; i++) {
         if (inputBusca.value == listaProducts[i].nome) {
             resultadoBusca.push(listaProducts[i])
         }
     }
 
-
+    precoTotal(resultadoBusca)
     criaLista(resultadoBusca)
 
 }
@@ -113,16 +117,17 @@ btnBusca.addEventListener("click", pesquisa)
 
 
 
-function precoTotal() {
-    const quantidadeDeProduto = listaProducts.reduce((valorAnterior, valorAtual) => {
-        const soma = {
-            valorTotal: 0
-        }
-        soma.preco = valorAnterior.preco + valorAtual.preco
-        return soma
+function precoTotal(array) {
 
+    const quantidadeDeProduto = array.reduce((valorAnterior, valorAtual) => {
+        return valorAnterior + valorAtual.preco
+    }, 0)
+
+    total.innerText = quantidadeDeProduto.toLocaleString('pt-br', {
+        style: 'currency',
+        currency: 'BRL'
     })
 
 }
 
-precoTotal()
+precoTotal(listaProducts)

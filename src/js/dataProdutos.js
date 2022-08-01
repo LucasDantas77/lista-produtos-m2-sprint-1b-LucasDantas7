@@ -27,5 +27,6 @@ let leite = createItem("Leite", 5.00, "Laticínio", "Leite", "./src/img/leite.pn
 
 createProductsItem(banana);
 createProductsItem(morango);
+createProductsItem(maca)
 createProductsItem(pao);
 createProductsItem(leite);
