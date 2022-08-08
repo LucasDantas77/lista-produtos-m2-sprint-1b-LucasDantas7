@@ -166,7 +166,7 @@ btnPanificadora.addEventListener("click", panificadora);
 function laticinios() {
 
     const mostrarLaticinios = produtos.filter((produtos) => {
-        return produtos.secao === "Laticínio"
+        return produtos.secao === "Laticínios"
 
     })
     ul.innerHTML = ""
