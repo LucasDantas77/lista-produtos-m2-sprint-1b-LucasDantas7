@@ -1,32 +1,81 @@
-const listaProducts = [];
-
-
-function createItem(nome, preco, secao, categoria, img) {
-    let item = {
-        nome: nome,
-        preco: preco,
-        secao: secao,
-        categoria: categoria,
-        img: img
-    }
-
-    return item
-}
-
-
-function createProductsItem(objeto) {
-    listaProducts.push(objeto)
-};
-
-
-let banana = createItem("Banana", 2.00, "Hortifruti", "fruta", "./src/img/banana.png");
-let morango = createItem("Morango", 2.00, "Hortifruti", "fruta", "./src/img/morango.png");
-let maca = createItem("Maçã", 2.00, "Hortifruti", "fruta", "./src/img/maça.png");
-let pao = createItem("Pão", 4.00, "Panificadora", "Pães", "./src/img/pao.png");
-let leite = createItem("Leite", 5.00, "Laticínio", "Leite", "./src/img/leite.png");
-
-createProductsItem(banana);
-createProductsItem(morango);
-createProductsItem(maca)
-createProductsItem(pao);
-createProductsItem(leite);
+const produtos = [
+    {
+      id: 1,
+      nome: "Banana",
+      preco: 2.00,
+      secao: "Hortifruti",
+      categoria: "fruta",
+      img: "./src/img/banana.png",
+      promocao: true,
+      precoPromocao: "1.00",
+      componentes: [
+        "Potássio",
+        "Vitamina B6",
+        "Vitamina C",
+        "Folatos"
+      ]
+    },
+    {
+      id: 2,
+      nome: "Morango",
+      preco: 2.00,
+      secao: "Hortifruti",
+      categoria: "fruta",
+      img: "./src/img/morango.png",
+      promocao: false,
+      precoPromocao: "0",
+      componentes: [
+        "Fibras",
+        "Vitamina C",
+        "Cálcio",
+        "Ferro"
+      ]
+    },
+    {
+      id: 3,
+      nome: "Maçã",
+      preco: 2.00,
+      secao: "Hortifruti",
+      categoria: "fruta",
+      img: "./src/img/maça.png",
+      promocao: true,
+      precoPromocao: "1.50",
+      componentes: [
+        "Potássio",
+        "Vitamina A",
+        "Vitamina E",
+        "Vitamina C"
+      ]
+    },
+    {
+      id: 4,
+      nome: "Pão",
+      preco: 4.00,
+      secao: "Panificadora",
+      categoria: "Pães",
+      img: "./src/img/pao.png",
+      promocao: true,
+      precoPromocao: "2.50",
+      componentes: [
+        "Cálcio",
+        "Sódio",
+        "Fibra Alimentar",
+        "Proteínas"
+      ]
+    },
+    {
+      id: 5,
+      nome: "Leite",
+      preco: 5.00,
+      secao: "Laticínios",
+      categoria: "Leite",
+      img: "./src/img/leite.png",
+      promocao: false,
+      precoPromocao: "1.00",
+      componentes: [
+        "Carboidratos",
+        "Proteínas",
+        "Gorduras totais"
+      ]
+    },
+  ]
