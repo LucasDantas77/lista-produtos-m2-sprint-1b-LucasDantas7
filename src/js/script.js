@@ -171,7 +171,7 @@ function laticinios() {
     })
     ul.innerHTML = ""
     criaLista(mostrarLaticinios)
-    
+
 
 
 }
